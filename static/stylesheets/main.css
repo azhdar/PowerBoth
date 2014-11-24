@@ -141,6 +141,8 @@ body {
 	position: absolute;
 	top: 0;
 	bottom: 0;
+	left: 100%;
+	right: 0;
 	border-left: 2px solid rgba(255, 255, 255, 0.8);
 	border-right: 2px solid rgba(255, 255, 255, 0.8);
 	background: rgba(255, 255, 255, 0.4);
