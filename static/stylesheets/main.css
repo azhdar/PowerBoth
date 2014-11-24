@@ -1,0 +1,321 @@
+/*
+@font-face {
+		font-family: 'entypo';
+		src: url('entypo.eot');
+		src: url('entypo.eot?#iefix') format('embedded-opentype'),
+				 url('entypo.woff') format('woff'),
+				 url('entypo.ttf') format('truetype'),
+				 url('entypo.svg#entypo') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+@font-face {
+		font-family: 'entypo-social';
+		src: url('entypo-social.eot');
+		src: url('entypo-social.eot?#iefix') format('embedded-opentype'),
+				 url('entypo-social.woff') format('woff'),
+				 url('entypo-social.ttf') format('truetype'),
+				 url('entypo-social.svg#entypo') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'MeteoconsRegular';
+		src: url('meteocons-webfont.eot');
+		src: url('meteocons-webfont.eot?#iefix') format('embedded-opentype'),
+				 url('meteocons-webfont.woff') format('woff'),
+				 url('meteocons-webfont.ttf') format('truetype'),
+				 url('meteocons-webfont.svg#MeteoconsRegular') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+
+.entypo {
+	font-family: 'entypo';
+	font-size: 50px;
+	line-height: 25px;
+}
+
+.entypo-social {
+	font-family: 'entypo-social';
+	font-size: 35px;
+	line-height: 35px;
+}
+
+.meteo {
+	font-family: 'MeteoconsRegular';
+	font-size: 30px;
+	line-height: 30px;
+}
+*/
+
+
+
+a, a:hover, a:focus {
+	color: inherit;
+	text-decoration: none;
+}
+
+body {
+	padding-top: 50px;
+	/*background: #2c3e50;*/
+	background: white;
+	line-height: 1;
+	overflow: hidden;
+}
+
+
+
+
+/* DASHBOARD */
+
+
+/*.container {
+	padding: 0;
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 700px;
+	}
+}*/
+
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	height: 50px;
+	overflow: hidden;
+}
+
+.header .header-logo {
+	font-size: 20px;
+	line-height: 2.5em;
+	color: #666;
+}
+.header .header-logo sup {
+	font-size: 9px;
+}
+
+.header span.header-text-link {
+	cursor: pointer;
+	padding: 0 15px;
+	color: #CCC;
+}
+
+.items {
+	/*min-height: 2000px;*/
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+}
+
+.current-time {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	border-left: 1px dashed rgba(255, 255, 255, 0.7);
+}
+
+.item {
+	min-height: 230px;
+	margin-bottom: 4px;
+	color: white;
+	position: relative;
+}
+
+@media (max-width: 400px) {
+	.item {
+		min-height: 170px;
+	}
+}
+
+.item .on-area {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	border-left: 2px solid rgba(255, 255, 255, 0.8);
+	border-right: 2px solid rgba(255, 255, 255, 0.8);
+	background: rgba(255, 255, 255, 0.4);
+}
+
+.item span.title {
+	position: absolute;
+	top: 25px;
+	left: 25px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/*.item span.current {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	font-size: 18px;
+}*/
+
+@media (max-width: 768px) {
+	.item span.title {
+		top: 10px;
+		left: 10px;
+	}
+
+	/*.item span.current {
+		top: 10px;
+		right: 10px;
+	}*/
+}
+
+.item span.get-on {
+	position: absolute;
+	font-size: 13px;
+	bottom: 8px;
+	left: -40px;
+}
+.item span.get-off {
+	position: absolute;
+	font-size: 13px;
+	bottom: 8px;
+	right: 5px;
+}
+
+.item.light {
+	background: #f8bf63;
+}
+.item .on-area span.meteo.light-on {
+	position: absolute;
+	bottom: 0px;
+	left: 3px;
+	font-size: 25px;
+}
+.item .on-area span.meteo.light-off {
+	position: absolute;
+	bottom: 0px;
+	right: -30px;
+}
+
+.item.co2 {
+	background: #add6e6;
+}
+.item .on-area span.entypo-social.co2-on {
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+}
+.item .on-area span.entypo.co2-off {
+	position: absolute;
+	bottom: 10px;
+	right: -15px;
+	font-size: 30px;
+}
+
+.item.fertilizer {
+	background: #16a085;
+}
+.item .on-pulse {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	border-left: 2px solid rgba(255, 255, 255, 0.8);
+}
+.item .on-pulse span.entypo {
+	position: absolute;
+	bottom: 11px;
+	right: -17px;
+	font-size: 32px;
+}
+
+
+
+/* ITEM */
+
+.top {
+	background: #999999;
+	color: white;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+	height: 50%;
+	text-align: center;
+	padding-top: 10%;
+}
+
+.top .row span.get-on,
+.top .row span.get-off {
+	font-size: 40px;
+	line-height: 100px;
+}
+
+.bottom {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+/* ITEM LIGHT */
+
+.top.light {
+	background: #f8bf63;
+}
+
+.top.light .row span.meteo.light-on {
+	font-size: 100px;
+	line-height: 100%;
+}
+.top.light .row span.meteo.light-off {
+	font-size: 100px;
+	line-height: 100%;
+}
+
+.bottom.light .noUi-background,
+.bottom.light.noUi-background {
+	background: #f8bf63;
+}
+
+/* ITEM CO2 */
+
+.top.co2 {
+	background: #add6e6;
+}
+
+.top.co2 .row span.entypo-social.co2-on {
+	font-size: 70px;
+	line-height: 100%;
+}
+.top.co2 .row span.entypo-social.co2-off {
+	font-size: 100px;
+	line-height: 100%;
+}
+
+.bottom.co2 .noUi-background,
+.bottom.co2.noUi-background {
+	background: #add6e6;
+}
+
+/* ITEM FERTILIZER */
+
+.top.fertilizer {
+	background: #16a085;
+	bottom: 0;
+	height: auto;
+}
+
+/*.top.fertilizer .row span.entypo.fertilizer-on {
+	font-size: 60px;
+	line-height: 100%;
+}*/
+
+.top.fertilizer input {
+	display: none;
+}

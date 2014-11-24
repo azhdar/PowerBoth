@@ -1,0 +1,23 @@
+{
+  "name": "PowerSocket",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/azhdar/PowerSocket"
+  },
+  "author": "azhdar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azhdar/PowerSocket/issues"
+  },
+  "homepage": "https://github.com/azhdar/PowerSocket",
+  "private": true,
+  "dependencies": {
+    "elastic-beam": "0.0.1",
+    "socket.io": "1.x",
+    "lowdb": "0.5.x",
+    "express": "4.x"
+  }
+}

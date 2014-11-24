@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>PowerSocket</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+	        button.isOn {
+	        	border: 2px solid green;
+	        }
+
+	        button.isOff {
+	        	border: 2px solid red;
+	        }
+        </style>
+    </head>
+    <body>
+    	<button data-num="1">Power 1</button>
+    	<button data-num="2">Power 2</button>
+    	<button data-num="3">Power 3</button>
+    	<button data-num="4">Power 4</button>
+		
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			var socket = io.connect('http://raspberrypi:80');
+
+			socket.on('message', function(message) {
+				console.log('[server/message] ' + message);
+			});
+
+			socket.on('state', function(state) {
+				console.log('[server/state] ' + state);
+				var json = $.parseJSON(state);
+				console.log(json.power, json.isOn, json.isOn?'isOn':'isOff');
+				$('button[data-num=' + json.power + ']').removeClass().addClass('"' + json.isOn?'isOn':'isOff' + '"');
+			});
+
+			$(document).ready(function(){
+				$('button').on('click', function() {
+					var num = $(this).attr('data-num');
+					socket.emit('toggle', num);
+				});
+			});
+		</script>
+    </body>
+</html>

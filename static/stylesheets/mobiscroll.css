@@ -1,0 +1,23 @@
+.ios7 .dwwr, .ios7 .dww {
+    background: transparent;
+}
+.ios7 .dwwc, .ios7 .dw .dwwl {
+    background: none;
+}
+.ios7 .dwwo {
+    background: -webkit-gradient(linear,left bottom,left top,from(rgba(22,160,133,1)),color-stop(0.52, rgba(22,160,133,0)),color-stop(0.48, rgba(22,160,133,0)),to(rgba(22,160,133,1)));
+    background: -webkit-linear-gradient(rgba(22,160,133,1) 0%,rgba(22,160,133,0) 52%, rgba(22,160,133,0) 48%, rgba(22,160,133,1) 100%);
+    background: -moz-linear-gradient(rgba(22,160,133,1) 0%,rgba(22,160,133,0) 52%, rgba(22,160,133,0) 48%, rgba(22,160,133,1) 100%);
+    background: linear-gradient(rgba(22,160,133,1) 0%,rgba(22,160,133,0) 52%, rgba(22,160,133,0) 48%, rgba(22,160,133,1) 100%);
+}
+.ios7 .dwwol {
+    margin: -18px 0 0 0px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+.ios7 .dw-li {
+    color: white;
+}
+.ios7 .dw-sel {
+    color: white;
+}

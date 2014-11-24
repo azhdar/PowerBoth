@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+	<title>Power</title>
+
+	<link href="bower_components/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="stylesheets/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="header">
+		<div class="container">
+			<span class="header-text-link entypo pull-left">&#9881;</span>
+			<span class="header-logo" href="#">Power</span>
+			<span class="header-text-link entypo pull-right">&#10133;</span>
+		</div>
+	</div>
+
+	<div class="items">
+		<div class="container">
+			<div class="item light">
+				<div class="on-area" style="left: 30%; right: 15%;">
+					<span class="get-on">09:00</span>
+					<!-- <span class="meteo light-on">B</span> -->
+					<span class="get-off">17:00</span>
+					<!-- <span class="meteo light-off">C</span> -->
+				</div>
+				<span class="title">Light</span>
+			</div>
+			<div class="item co2">
+				<div class="on-area" style="left: 25%; right: 20%;">
+					<span class="get-on">08:30</span>
+					<!-- <span class="entypo-social co2-on">&#62289;</span> -->
+					<span class="get-off">16:30</span>
+					<!-- <span class="entypo co2-off">&#9204;</span> -->
+				</div>
+				<span class="title">Co²</span>
+			</div>
+		</div>
+	</div>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+  	<script src="javascripts/main.js"></script>
+</body>
+</html>
