@@ -12,6 +12,8 @@ socket.on('power', function(power) {
             $('.items .item:nth-child(' + i + ') .on-area .get-on').html(int2hour(power[i - 1].on));
             $('.items .item:nth-child(' + i + ') .on-area .get-off').html(int2hour(power[i - 1].off));
             $('.items .item:nth-child(' + i + ')').css('background-color', '#' + power[i - 1].color);
+        } else {
+            $('.items .item:nth-child(' + i + ')').remove();
         }
     }
 });

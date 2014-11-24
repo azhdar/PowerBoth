@@ -19,6 +19,6 @@
     "bootstrap": "~3.3.1",
     "mobiscroll": "~2.14.0",
     "nouislider": "~7.0.9",
-    "ubuntu-font": "*"
+    "ubuntu-fontface": "~0.1.3"
   }
 }
