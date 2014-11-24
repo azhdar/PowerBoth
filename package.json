@@ -18,6 +18,8 @@
     "elastic-beam": "0.0.1",
     "socket.io": "1.x",
     "lowdb": "0.5.x",
-    "express": "4.x"
+    "express": "4.x",
+    "feathers": "1.0.0",
+    "body-parser": "1.9.x"
   }
 }
