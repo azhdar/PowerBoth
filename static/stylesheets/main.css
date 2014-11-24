@@ -126,7 +126,7 @@ body {
 
 .item {
 	min-height: 230px;
-	margin-bottom: 4px;
+	margin-bottom: 2px;
 	color: white;
 	position: relative;
 }
@@ -145,7 +145,7 @@ body {
 	right: 0;
 	border-left: 2px solid rgba(255, 255, 255, 0.8);
 	border-right: 2px solid rgba(255, 255, 255, 0.8);
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.3);
 }
 
 .item span.title {
@@ -178,16 +178,17 @@ body {
 .item span.get-on {
 	position: absolute;
 	font-size: 13px;
-	bottom: 8px;
+	bottom: 4px;
 	left: -40px;
 }
 .item span.get-off {
 	position: absolute;
 	font-size: 13px;
-	bottom: 8px;
+	bottom: 4px;
 	right: 5px;
 }
 
+/*
 .item.light {
 	background: #f8bf63;
 }
@@ -234,7 +235,7 @@ body {
 	right: -17px;
 	font-size: 32px;
 }
-
+*/
 
 
 /* ITEM */

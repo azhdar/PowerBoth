@@ -5,12 +5,13 @@ socket.on('message', function(message) {
 });
 
 socket.on('power', function(power) {
-    for (var i = 1; i <= 4; i++) { 
-        $('.items .item:nth-child(' + i + ') .on-area').css('left', int2percent(power[i - 1].on) + '%')
-        $('.items .item:nth-child(' + i + ') .on-area').css('right', (100 - int2percent(power[i - 1].off)) + '%')
+    for (var i = 1; i <= 4; i++) {
         if ((power[i - 1].off - power[i - 1].on) != 1440) {
+            $('.items .item:nth-child(' + i + ') .on-area').css('left', int2percent(power[i - 1].on) + '%')
+            $('.items .item:nth-child(' + i + ') .on-area').css('right', (100 - int2percent(power[i - 1].off)) + '%')
             $('.items .item:nth-child(' + i + ') .on-area .get-on').html(int2hour(power[i - 1].on));
             $('.items .item:nth-child(' + i + ') .on-area .get-off').html(int2hour(power[i - 1].off));
+            $('.items .item:nth-child(' + i + ')').css('background-color', '#' + power[i - 1].color);
         }
     }
 });

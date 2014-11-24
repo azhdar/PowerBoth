@@ -18,6 +18,7 @@
   "dependencies": {
     "bootstrap": "~3.3.1",
     "mobiscroll": "~2.14.0",
-    "nouislider": "~7.0.9"
+    "nouislider": "~7.0.9",
+    "ubuntu-font": "*"
   }
 }
