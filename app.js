@@ -2,33 +2,37 @@ var addon = require('./node_modules/elastic-beam/build/Release/power_ctl')
 var pwr_ctl = addon.PowerCtl()
 var low = require('lowdb')
 var db = low('db.json')
-//var app = require('express')()
-//var server = require('http').Server(app)
-//var io = require('socket.io')(server)
 
-// Requires
-var express = require('express');
-var socketio = require('socket.io');
+var feathers = require('feathers');
+var bodyParser = require('body-parser');
 
-// Configuration
-var appConfig = {
-    staticPath: __dirname + '/static'
-};
+var myService = {
+  find: function(params, callback) {},
+  get: function(id, params, callback) {
+  	try {
+      callback(null, this.getTodo(id));
+    } catch(error) {
+      callback(error);
+    }
+  },
+  create: function(data, params, callback) {},
+  update: function(id, data, params, callback) {},
+  patch: function(id, data, params, callback) {},
+  remove: function(id, params, callback) {},
+  setup: function(app, path) {}
+}
 
-// Application
-var app = express();
-var server = require('http').createServer(app);
-var io = socketio.listen(server);
+var app = feathers()
+  .configure(feathers.rest())
+  .configure(feathers.socketio())
+  // Parse HTTP bodies
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
+  // Host the current directory (for index.html)
+  .use(feathers.static(__dirname))
+  // Host our Todos service on the /todos path
+  .use('/power', powerService);
 
-// Middlewares
-app.use(express.static(appConfig.staticPath));
-app.use(function(req,res,next){
-    res.status(404).send('404 Not Found. Sorry.\n');
-});
-
-server.listen(80, function() {
-	console.log('Power is ready!')
-})
 
 /*app.get('/toggle/:id', function(req, res){
 	var id = parseInt(req.params.id)
