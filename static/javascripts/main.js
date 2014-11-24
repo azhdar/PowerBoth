@@ -5,7 +5,10 @@ socket.on('message', function(message) {
 });
 
 socket.on('power', function(power) {
-    console.log(power);
+    for (var i = 1; i <= 4; i++) { 
+        $('.items .item:nth-child(' + i + ') .on-area').css('left', int2percent(power[i - 1].on) + '%')
+        $('.items .item:nth-child(' + i + ') .on-area').css('right', (100 - int2percent(power[i - 1].off)) + '%')
+    }
 });
 
 socket.on('state', function(state) {
@@ -57,6 +60,10 @@ function int2hour(num) {
     var h = pad2(Math.floor(num / 60));
     var m = pad2(num - (h * 60));
     return h + ':' + m;
+}
+
+function int2percent(num) {
+    return (parseInt(num) * 100) / 1440;
 }
 
 function pad2(num) {
