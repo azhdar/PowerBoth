@@ -83,7 +83,7 @@
 /* Styling;
  */
 .noUi-background {
-	background: #f8bf63;
+	/*background: #f8bf63;*/
 }
 .noUi-connect {
 	border-left: 2px solid rgba(255, 255, 255, 0.8);
@@ -108,7 +108,16 @@
 .noUi-handle {
 	/*background: #FFF;*/
 	cursor: default;
+	position: relative;
 }
+
+.noUi-handle div {
+	position: absolute;
+	font-size: 13px;
+	bottom: 4px;
+	left: -25px;
+}
+
 .noUi-active {
 }
 

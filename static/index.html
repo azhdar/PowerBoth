@@ -9,64 +9,57 @@
 
 	<link href="bower_components/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="bower_components/ubuntu-fontface/ubuntu.css" rel="stylesheet">
+	<link href="stylesheets/slider.css" rel="stylesheet">
 	<link href="stylesheets/main.css" rel="stylesheet">
 </head>
 
 <body>
 
-	<!--
-	<div class="header">
-		<div class="container">
-			<span class="header-text-link pull-left">&#9881;</span>
-			<span class="header-logo" href="#">Power</span>
-			<span class="header-text-link pull-right">&#10133;</span>
-		</div>
-	</div>
-	-->
-
 	<div class="items">
 		<div class="container">
 			<div class="item">
-				<div class="on-area">
-					<span class="get-on"></span>
-					<span class="get-off"></span>
+				<div class="top">
+					<span class="get-on"></span><br />
+					<span class="get-off"></span><br />
+					<span class="total-time"></span>
 				</div>
-				<span class="title">Light</span>
+				<div class="bottom"></div>
+				<span class="title"></span>
 			</div>
 			<div class="item">
-				<div class="on-area">
-					<span class="get-on"></span>
-					<span class="get-off"></span>
+				<div class="top">
+					<span class="get-on"></span><br />
+					<span class="get-off"></span><br />
+					<span class="total-time"></span>
 				</div>
-				<span class="title">Co²</span>
+				<div class="bottom"></div>
+				<span class="title"></span>
 			</div>
 			<div class="item">
-				<div class="on-area">
-					<span class="get-on"></span>
-					<span class="get-off"></span>
+				<div class="top">
+					<span class="get-on"></span><br />
+					<span class="get-off"></span><br />
+					<span class="total-time"></span>
 				</div>
-				<span class="title">Pump</span>
+				<div class="bottom"></div>
+				<span class="title"></span>
 			</div>
 			<div class="item">
-				<div class="on-area">
-					<span class="get-on"></span>
-					<span class="get-off"></span>
+				<div class="top">
+					<span class="get-on"></span><br />
+					<span class="get-off"></span><br />
+					<span class="total-time"></span>
 				</div>
-				<span class="title">Nothing</span>
+				<div class="bottom"></div>
+				<span class="title"></span>
 			</div>
 		</div>
-		<footer>
-			<table><tr>
-				<td data-num="1">Power 1</td>
-				<td data-num="2">Power 2</td>
-				<td data-num="3">Power 3</td>
-				<td data-num="4">Power 4</td>
-			</tr></table>
-		</footer>
 	</div>
 
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
+	<script src="bower_components/nouislider/distribute/jquery.nouislider.min.js"></script>
+	<script src="bower_components/liblink/jquery.liblink.js"></script>
   	<script src="javascripts/main.js"></script>
 </body>
 </html>

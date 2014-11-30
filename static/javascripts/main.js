@@ -8,11 +8,34 @@ socket.on('power', function(power) {
     for (var i = 1; i <= 4; i++) {
         if ((power[i - 1].off - power[i - 1].on) != 1440) {
             console.log(power[i - 1].on);
-            $('.items .item:nth-child(' + i + ') .on-area').css('left', int2percent(power[i - 1].on) + '%')
+            /*$('.items .item:nth-child(' + i + ') .on-area').css('left', int2percent(power[i - 1].on) + '%')
             $('.items .item:nth-child(' + i + ') .on-area').css('right', (100 - int2percent(power[i - 1].off)) + '%')
             $('.items .item:nth-child(' + i + ') .on-area .get-on').html(int2hour(power[i - 1].on));
-            $('.items .item:nth-child(' + i + ') .on-area .get-off').html(int2hour(power[i - 1].off));
+            $('.items .item:nth-child(' + i + ') .on-area .get-off').html(int2hour(power[i - 1].off));*/
+
             $('.items .item:nth-child(' + i + ')').css('background-color', '#' + power[i - 1].color);
+
+            $('.items .item:nth-child(' + i + ') .bottom').noUiSlider({
+                range: {
+                    'min': 0,
+                    'max': 1440
+                },
+                start: [power[i - 1].on, power[i - 1].off],
+                connect: true,
+                step: 5,
+                margin: 1,
+                slide: update
+            }).change(update)
+
+            $('.items .item:nth-child(' + i + ') .bottom').Link('lower').to('-inline-', setInt2hour);
+            $('.items .item:nth-child(' + i + ') .bottom').Link('upper').to('-inline-', setInt2hour);
+
+            $('.items .item:nth-child(' + i + ') .noUi-handle-lower div').html(int2hour(power[i - 1].on));
+            $('.items .item:nth-child(' + i + ') .noUi-handle-upper div').html(int2hour(power[i - 1].off));
+
+            $('.items .item:nth-child(' + i + ') .noUi-background').css('background', '#' + power[i - 1].color);
+
+            $('.items .item:nth-child(' + i + ') span.title').text(power[i - 1].title);
         } else {
             $('.items .item:nth-child(' + i + ')').remove();
         }
@@ -26,25 +49,7 @@ socket.on('state', function(state) {
     $('button[data-num=' + json.power + ']').removeClass().addClass('"' + json.isOn?'isOn':'isOff' + '"');
 });
 
-$(document).ready(function(){
-    $('td').on('click', function() {
-        var num = $(this).attr('data-num');
-        socket.emit('toggle', num);
-    });
-});
-
 $(function() {
-
-    /*
-    $('.bottom.light').noUiSlider({
-        range: [0,1440],
-        start: [400, 1100],
-        connect: true,
-        step: 5,
-        margin: 1,
-        slide: update
-    }).change(update)
-    */
 
 })
 
@@ -62,6 +67,12 @@ function update(e) {
     var tm = pad2(t - (th * 60));
 
     console.log(dh+':'+dm+' -> '+fh+':'+fm+' = '+th+':'+tm);
+}
+
+function setInt2hour(num) {
+    var h = pad2(Math.floor(num / 60));
+    var m = pad2(num - (h * 60));
+    $(this).html(int2hour(num));
 }
 
 function int2hour(num) {

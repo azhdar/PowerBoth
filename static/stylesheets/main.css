@@ -13,44 +13,7 @@ body {
 }
 
 
-
 /* DASHBOARD */
-
-
-/*.container {
-	padding: 0;
-}
-
-@media (min-width: 768px) {
-	.container {
-		max-width: 700px;
-	}
-}*/
-
-.header {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	height: 50px;
-	overflow: hidden;
-}
-
-.header .header-logo {
-	font-size: 20px;
-	line-height: 2.5em;
-	color: #666;
-}
-.header .header-logo sup {
-	font-size: 9px;
-}
-
-.header span.header-text-link {
-	cursor: pointer;
-	padding: 0 15px;
-	color: #CCC;
-}
 
 .items {
 	position: absolute;
@@ -60,14 +23,6 @@ body {
 	right: 0;
 	bottom: 0;
 	overflow: auto;
-}
-
-.current-time {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	width: 1px;
-	border-left: 1px dashed rgba(255, 255, 255, 0.7);
 }
 
 .item {
@@ -81,17 +36,6 @@ body {
 	.item {
 		min-height: 170px;
 	}
-}
-
-.item .on-area {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 100%;
-	right: 0;
-	border-left: 2px solid rgba(255, 255, 255, 0.8);
-	border-right: 2px solid rgba(255, 255, 255, 0.8);
-	background: rgba(255, 255, 255, 0.3);
 }
 
 .item span.title {
@@ -109,34 +53,9 @@ body {
 	}
 }
 
-.item span.get-on {
-	position: absolute;
-	font-size: 13px;
-	bottom: 4px;
-	left: -40px;
-}
-.item span.get-off {
-	position: absolute;
-	font-size: 13px;
-	bottom: 4px;
-	right: 5px;
-}
-
-footer table {
-	width: 100%;
-	margin-top: -2px;
-	text-align: center;
-}
-
-footer table td {
-	padding: 10px 0;
-	background-color: #7f8c8d;
-	cursor: pointer;
-}
-
 /* ITEM */
 
-.top {
+.item .top {
 	background: #999999;
 	color: white;
 	position: absolute;
@@ -146,18 +65,26 @@ footer table td {
 	height: 50%;
 	text-align: center;
 	padding-top: 10%;
+	display: none;
 }
 
-.top .row span.get-on,
-.top .row span.get-off {
+.item.big .top {
+	display: block;
+}
+
+.item .top span.get-on,
+.item .top span.get-off {
 	font-size: 40px;
 	line-height: 100px;
 }
 
-.bottom {
+.item .bottom {
 	position: absolute;
-	top: 50%;
+	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
+}
+.item.big .bottom {
+	top: 50%;
 }
