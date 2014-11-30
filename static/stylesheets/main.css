@@ -38,6 +38,14 @@ body {
 	}
 }
 
+.item.big {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
 .item span.title {
 	position: absolute;
 	top: 25px;
@@ -53,13 +61,25 @@ body {
 	}
 }
 
+.item span.close {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	font-size: 20px;
+	font-weight: normal;
+	display: none;
+	cursor: pointer;
+}
+.item.big span.close {
+	display: block;
+}
+
 /* ITEM */
 
 .item .top {
-	background: #999999;
 	color: white;
 	position: absolute;
-	top: 50px;
+	top: 0;
 	left: 0;
 	right: 0;
 	height: 50%;

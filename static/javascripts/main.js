@@ -27,8 +27,13 @@ socket.on('power', function(power) {
                 slide: update
             }).change(update)
 
+            $('.items .item:nth-child(' + i + ') .top span.get-on').html(int2hour(power[i - 1].on));
+            $('.items .item:nth-child(' + i + ') .top span.get-off').html(int2hour(power[i - 1].off));
+
             $('.items .item:nth-child(' + i + ') .bottom').Link('lower').to('-inline-', setInt2hour);
+            $('.items .item:nth-child(' + i + ') .bottom').Link('lower').to($('.items .item:nth-child(' + i + ') .top span.get-on'), setInt2hour);
             $('.items .item:nth-child(' + i + ') .bottom').Link('upper').to('-inline-', setInt2hour);
+            $('.items .item:nth-child(' + i + ') .bottom').Link('upper').to($('.items .item:nth-child(' + i + ') .top span.get-off'), setInt2hour);
 
             $('.items .item:nth-child(' + i + ') .noUi-handle-lower div').html(int2hour(power[i - 1].on));
             $('.items .item:nth-child(' + i + ') .noUi-handle-upper div').html(int2hour(power[i - 1].off));
@@ -36,6 +41,8 @@ socket.on('power', function(power) {
             $('.items .item:nth-child(' + i + ') .noUi-background').css('background', '#' + power[i - 1].color);
 
             $('.items .item:nth-child(' + i + ') span.title').text(power[i - 1].title);
+
+            $('.items .item:nth-child(' + i + ') .bottom').attr('disabled', 'disabled');
         } else {
             $('.items .item:nth-child(' + i + ')').remove();
         }
@@ -50,6 +57,22 @@ socket.on('state', function(state) {
 });
 
 $(function() {
+
+    $('.items .item').on('click', function() {
+        if (!$(this).hasClass('big')) {
+            $(this).addClass('big');
+            $(this).find('.bottom').removeAttr('disabled');
+            $(this).siblings().hide();
+        }
+    });
+
+    $('.items .item span.close').on('click', function(e) {
+        var item = $(this).parent();
+        item.removeClass('big');
+        item.find('.bottom').attr('disabled', 'disabled');
+        item.siblings().show();
+        e.stopPropagation();
+    });
 
 })
 

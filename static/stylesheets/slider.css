@@ -150,17 +150,17 @@
 
 /* Disabled state;
  */
-[disabled].noUi-connect,
+/*[disabled].noUi-connect,
 [disabled] .noUi-connect {
 	background: #B8B8B8;
 }
 [disabled] .noUi-handle {
 	cursor: not-allowed;
-}
+}*/
 
 /* Blocked state;
  */
-.noUi-state-blocked.noUi-connect,
+/*.noUi-state-blocked.noUi-connect,
 .noUi-state-blocked .noUi-connect {
 	background: #4FDACF;
-}
+}*/
