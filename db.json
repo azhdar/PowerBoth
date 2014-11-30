@@ -3,22 +3,26 @@
     {
       "on": 1020,
       "off": 1320,
-      "color": "f8bf63"
+      "color": "f8bf63",
+      "title": "Light"
     },
     {
       "on": 990,
       "off": 1290,
-      "color": "add6e6"
+      "color": "add6e6",
+      "title": "Co2"
     },
     {
       "on": 1050,
       "off": 1320,
-      "color": "2c3e50"
+      "color": "2c3e50",
+      "title": "Pump"
     },
     {
       "on": 0,
       "off": 1440,
-      "color": "2c3e50"
+      "color": "000000",
+      "title": "Nothing"
     }
   ]
 }
