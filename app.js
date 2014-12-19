@@ -57,7 +57,17 @@ io.on('connection', function (socket) {
 	    socket.emit('state', '{"power":' + i + ',"isOn":' + pwr_ctl.isOn(parseInt(i)) + '}')
 	}
 
-	socket.emit('power', db('power').value())	
+	socket.emit('powers', db('power').value())
+
+	socket.on('refresh', function(id) {
+		socket.emit('power', db('power').find({ id: parseInt(id) }).value())
+	})
+
+	socket.on('save', function(power) {
+		var json = JSON.parse(power)
+		db('power').find({ id: parseInt(json.id) }).assign({ on: json.on, off: json.off })
+		socket.emit('power', db('power').find({ id: parseInt(json.id) }).value())
+	})
 
 	socket.on('toggle', function(id) {
 		var id = parseInt(id)

@@ -1,28 +1,32 @@
 {
   "power": [
     {
+      "id": 1,
       "on": 1020,
       "off": 1320,
       "color": "f8bf63",
       "title": "Light"
     },
     {
+      "id": 2,
       "on": 990,
       "off": 1290,
       "color": "add6e6",
       "title": "Co2"
     },
     {
+      "id": 3,
       "on": 1050,
       "off": 1320,
       "color": "2c3e50",
       "title": "Pump"
     },
     {
-      "on": 0,
-      "off": 1440,
-      "color": "000000",
-      "title": "Nothing"
+      "id": 4,
+      "on": 1095,
+      "off": 1095,
+      "color": "16a085",
+      "title": "Fertilizer"
     }
   ]
 }

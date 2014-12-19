@@ -46,56 +46,101 @@ body {
 	bottom: 0;
 }
 
-.item span.title {
+.item span.cancel {
 	position: absolute;
-	top: 25px;
-	left: 25px;
-	font-size: 20px;
+	top: 0px;
+	left: 0px;
+	width: 50px;
+	font-size: 18px;
 	font-weight: normal;
+	display: none;
+	cursor: pointer;
+	padding: 15px 10px;
+	text-align: left;
+	font-weight: 300;
+}
+.item.big span.cancel {
+	display: block;
+	background: white;
+	color: gray;
 }
 
-@media (max-width: 768px) {
-	.item span.title {
-		top: 10px;
-		left: 10px;
-	}
+.item span.title {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	font-size: 20px;
+	font-weight: normal;
+	padding: 15px 10px;
+}
+.item.big span.title {
+	left: 70px;
+	top: 0px;
+	right: 70px;
+	text-align: center;
+	background: white;
+	color: black;
 }
 
 .item span.close {
 	position: absolute;
-	top: 10px;
-	right: 15px;
-	font-size: 20px;
+	top: 0px;
+	right: 0px;
+	width: 50px;
+	font-size: 18px;
 	font-weight: normal;
 	display: none;
 	cursor: pointer;
+	padding: 15px 10px;
+	text-align: right;
+	font-weight: 300;
 }
 .item.big span.close {
 	display: block;
+	background: white;
+	color: gray;
 }
 
 /* ITEM */
 
 .item .top {
-	color: white;
+	color: black;
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	height: 50%;
 	text-align: center;
-	padding-top: 10%;
 	display: none;
+
+	background: white;
+
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 }
 
 .item.big .top {
 	display: block;
 }
 
+.item .top .top-wrapper {
+	/*position: relative;
+	top: 50%;
+	transform: translateY(-50%);*/
+	margin-top: 40px;
+	height: 80%;
+}
+
 .item .top span.get-on,
 .item .top span.get-off {
-	font-size: 40px;
-	line-height: 100px;
+	font-size: 60px;
+	display: block;
+	padding-top: 8%;
+}
+.item .top span.total-time {
+	
+	display: block;
 }
 
 .item .bottom {
@@ -107,4 +152,8 @@ body {
 }
 .item.big .bottom {
 	top: 50%;
+}
+
+.item.big .bottom .noUi-handle div {
+	display: none;
 }
