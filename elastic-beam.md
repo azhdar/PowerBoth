@@ -28,3 +28,13 @@ install libusb :
 then : 
 
 #npm install elastic-beam 
+
+
+
+
+
+without sudo : http://forum.ubuntu-fr.org/viewtopic.php?id=1217181
+
+sudo udevadm info -q path -n /dev/bus/usb/001/004
+sudo udevadm info -a -p /devices/platform/bcm2708_usb/usb1/1-1/1-1.3
+??? SUBSYSTEM=="usb", ATTR{idVendor}=="0403", ATTR{idProduct}=="da77", GROUP="plugdev"

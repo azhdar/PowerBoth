@@ -16,7 +16,7 @@ socket.on('powers', function(powers) {
 
             var _start;
             var _connect;
-            if (powers[i - 1].on - powers[i - 1].off == 0) {
+            if (!powers[i - 1].off) {
                 _start = [powers[i - 1].on]
                 _connect = false
             } else {
@@ -35,10 +35,10 @@ socket.on('powers', function(powers) {
                 slide: update
             }).change(update)
 
-            if (powers[i - 1].on - powers[i - 1].off == 0) {
+            if (!powers[i - 1].off) {
                
                 $('.items .item:nth-child(' + i + ') .top span.get-on').html(int2hour(powers[i - 1].on));
-                $('.items .item:nth-child(' + i + ') .top span.get-off').remove()
+                $('.items .item:nth-child(' + i + ') .top span.get-off').html(powers[i - 1].time + " s");
 
                 $('.items .item:nth-child(' + i + ') .bottom').Link('lower').to('-inline-', setInt2hour);
                 $('.items .item:nth-child(' + i + ') .bottom').Link('lower').to($('.items .item:nth-child(' + i + ') .top span.get-on'), setInt2hour);
@@ -81,7 +81,7 @@ socket.on('state', function(state) {
 });
 
 socket.on('power', function(power) {
-    console.log(power.id, power.on, power.off)
+    console.log(power.id, power.on, power.off, power.time)
     $('.items .item:nth-child(' + power.id + ') .bottom').val([power.on, power.off]);
 })
 
@@ -90,6 +90,7 @@ $(function() {
     $('.items .item').on('click', function() {
         if (!$(this).hasClass('big')) {
             $(this).addClass('big');
+            $('body').addClass('fullscreen');
             $(this).find('.bottom').removeAttr('disabled');
             $(this).siblings().hide();
         }
@@ -98,30 +99,34 @@ $(function() {
     $('.items .item span.cancel').on('click', function(e) {
         var item = $(this).parent();
         item.removeClass('big');
+        $('body').removeClass('fullscreen');
         item.find('.bottom').attr('disabled', 'disabled');
         item.siblings().show();
         e.stopPropagation();
         socket.emit('refresh', item.attr('data-id'))
     });
 
-    $('.items .item span.close').on('click', function(e) {
+    $('.items .item span.save').on('click', function(e) {
         var item = $(this).parent();
         item.removeClass('big');
+        $('body').removeClass('fullscreen');
         item.find('.bottom').attr('disabled', 'disabled');
         item.siblings().show();
         e.stopPropagation();
 
         var range = $('.items .item:nth-child(' + item.attr('data-id') + ') .bottom').val()
         var on, off
-        if (range.length = 1) {
+        console.log(range)
+        if (!Array.isArray(range)) {
             on = parseInt(range)
-            off = on
+            console.log(on)
+            socket.emit('save', '{"id":' + item.attr('data-id') + ',"on":' + on+ '}')
         } else {
             on = parseInt(range[0])
             off = parseInt(range[1])
+            console.log(on, off)
+            socket.emit('save', '{"id":' + item.attr('data-id') + ',"on":' + on+ ',"off":' + off + '}')
         }
-        console.log(on, off)
-        socket.emit('save', '{"id":' + item.attr('data-id') + ',"on":' + on+ ',"off":' + off + '}')
     });
 
 })
