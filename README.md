@@ -12,6 +12,9 @@ sudo node app.js
 http://your-ip:80/
 
 
+(in case of touble, see elastic-beam.md)
+
+
 TODO:
  - raspi-io
  - johnny-five
