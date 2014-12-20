@@ -66,7 +66,8 @@ io.on('connection', function (socket) {
 	socket.on('save', function(power) {
 		var json = JSON.parse(power)
 		db('power').find({ id: parseInt(json.id) }).assign({ on: json.on, off: json.off })
-		socket.emit('power', db('power').find({ id: parseInt(json.id) }).value())
+		// send to everyone
+		io.emit('power', db('power').find({ id: parseInt(json.id) }).value())
 	})
 
 	socket.on('toggle', function(id) {

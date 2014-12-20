@@ -9,7 +9,6 @@ body {
 	font-weight: 300;
 	background: white;
 	line-height: 1;
-	overflow: hidden;
 }
 
 
@@ -69,14 +68,18 @@ body {
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	right: 0px;
+	bottom: 0px;
 	font-size: 20px;
 	font-weight: normal;
 	padding: 15px 10px;
+	z-index: 100;
 }
 .item.big span.title {
 	left: 70px;
 	top: 0px;
 	right: 70px;
+	bottom: auto;
 	text-align: center;
 	background: white;
 	color: black;
